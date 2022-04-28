@@ -8,6 +8,8 @@ const { createClient } = require('./helpers/handle');
 const { connectionReady, connectionLost } = require('./helpers/connection');
 const { sendMessage } = require('./helpers/send');
 const { reply_msg, enlace_wh } = require('./helpers/msg');
+const handleTime = require('./helpers/handleTime');
+const { getCitasManana } = require('./helpers/getcitasmanana');
 const app = express();
 
 app.use(cors());
@@ -22,14 +24,15 @@ var sessionData;
 
 app.use('/', require('./routes/web'));
 
-const listenMessage = () =>
-  client.on('message', async (msg) => {
+const listenMessage = () => {
+  return client.on('message', async (msg) => {
     const { from, body } = msg;
     console.log('De:', from, '- Msg:', body);
 
-    sendMessage(client, '593987318452@c.us', reply_msg);
-    sendMessage(client, '593987318452@c.us', enlace_wh);
+    sendMessage(client, from, reply_msg);
+    sendMessage(client, from, enlace_wh);
   });
+};
 
 const withSession = () => {
   console.log(`Validando session con Whatsapp...`);
@@ -76,24 +79,19 @@ const withOutSession = () => {
     // connectionLost()
   });
 
-  // client.on('authenticated', (session) => {
-  //     sessionData = session;
-
-  //     console.log("============== POR AQUI ==========", sessionData)
-
-  //     if(sessionData){
-  //         fs.writeFile(SESSION_FILE_PATH, JSON.stringify(session), function (err) {
-  //             if (err) {
-  //                 console.log(`Ocurrio un error con el archivo: `, err);
-  //             }
-  //         });
-  //     }
-  // });
-
   client.initialize();
 };
 
 fs.existsSync(SESSION_FILE_PATH) && MULTI_DEVICE === 'false' ? withSession() : withOutSession();
+
+setInterval(function () {
+  handleTime(client);
+}, 1000);
+
+getCitasManana().then((x) => {
+  console.log(x);
+  console.log('==== Numero ====', x.length);
+});
 
 server.listen(port, () => {
   console.log(`El server esta listo por el puerto ${port}`);
