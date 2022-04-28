@@ -75,13 +75,13 @@ const createClient =  (session = {}, login = false) => {
 
     if(MULTI_DEVICE == 'false') {
        return {
-        //    ...objectLegacy,
-        // restartOnAuthFail: true,
-        // puppeteer: {
-        //     args: [
-        //         '--no-sandbox'
-        //     ],
-        // }
+           ...objectLegacy,
+        restartOnAuthFail: true,
+        puppeteer: {
+            args: [
+                '--no-sandbox'
+            ],
+        }
     }
     }else{
         return {
