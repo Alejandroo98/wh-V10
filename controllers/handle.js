@@ -66,6 +66,7 @@ const checkEnvFile = () => {
  */
 const createClient =  (session = {}, login = false) => {
     console.log(`Mode: ${(MULTI_DEVICE === 'false') ? 'No Multi-device' : 'Si Multi-device'} `)
+    
     const objectLegacy = (login) ? {
         authStrategy: new LegacySessionAuth({
             session
@@ -73,13 +74,14 @@ const createClient =  (session = {}, login = false) => {
     } : {session};
 
     if(MULTI_DEVICE == 'false') {
-       return {...objectLegacy,
-        restartOnAuthFail: true,
-        puppeteer: {
-            args: [
-                '--no-sandbox'
-            ],
-        }
+       return {
+        //    ...objectLegacy,
+        // restartOnAuthFail: true,
+        // puppeteer: {
+        //     args: [
+        //         '--no-sandbox'
+        //     ],
+        // }
     }
     }else{
         return {

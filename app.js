@@ -182,6 +182,9 @@ const withOutSession = () => {
 
     client.on('authenticated', (session) => {
         sessionData = session;
+
+        console.log("============== POR AQUI ==========", sessionData)
+        
         if(sessionData){
             fs.writeFile(SESSION_FILE_PATH, JSON.stringify(session), function (err) {
                 if (err) {
@@ -210,5 +213,6 @@ if (process.env.DATABASE === 'mysql') {
 server.listen(port, () => {
     console.log(`El server esta listo por el puerto ${port}`);
 })
+
 checkEnvFile();
 
