@@ -1,7 +1,7 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
-const { sendMessagePost } = require('../controllers/web')
+const { sendMessagePost } = require('../helpers/web');
 
-router.post('/send', sendMessagePost)
+router.post('/send', sendMessagePost);
 
-module.exports = router
+module.exports = router;
