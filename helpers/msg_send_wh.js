@@ -3,11 +3,11 @@ const { sendMessage } = require('./send');
 
 const msg_send_wh = async (client) => {
   // ! PRODUCCION ****
-  //   const { getCitasManana } = require('./getcitasmanana');
-  //   const citasManana = await getCitasManana();
+  const { getCitasManana } = require('./getcitasmanana');
+  const citasManana = await getCitasManana();
 
   // **** DESARROLLO ****
-  const citasManana = require('../DB/contactos.json');
+  // const citasManana = require('../DB/contactos.json');
 
   try {
     citasManana.forEach(({ hora, telefono, nombres }) => {
