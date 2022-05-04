@@ -9,7 +9,7 @@ const handleTime = (client) => {
   // const timeSendMsg = '21:11:00';
 
   //produccion
-  const timeSendMsg = '8:00:00 PM';
+  const timeSendMsg = '9:00:00 PM';
 
   if (time == timeSendMsg) {
     console.log('ENVIANDO MENSAJES... ⚡⚡⚡');
