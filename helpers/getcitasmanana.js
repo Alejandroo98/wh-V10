@@ -57,8 +57,8 @@ const getCitasManana = async () => {
           {
             property: 'Fecha y hora',
             date: {
-              equals: formatDate(),
-              // equals: '2022-04-30',
+              // equals: formatDate(),
+              equals: '2022-05-04',
             },
           },
         ],
@@ -73,8 +73,7 @@ const getCitasManana = async () => {
       const nombres = value.properties.nombresWh.rollup.array[0].title[0].plain_text;
       let numDb = value.properties.Telefono.rollup.array[0].phone_number || false;
       if (numDb) {
-        telefono = '593' + numDb + '@c.us';
-        numDb.trim().slice(1);
+        telefono = '593' + numDb.trim().slice(1) + '@c.us';
       }
 
       const getfechaYHora = value.properties['Fecha y hora'].date.start;
