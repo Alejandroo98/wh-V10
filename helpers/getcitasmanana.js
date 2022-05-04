@@ -57,8 +57,8 @@ const getCitasManana = async () => {
           {
             property: 'Fecha y hora',
             date: {
-              equals: formatDate(),
-              // equals: '2022-04-28',
+              // equals: formatDate(),
+              equals: '2022-04-30',
             },
           },
         ],
@@ -68,12 +68,13 @@ const getCitasManana = async () => {
     const propertiesObjet = response.results;
 
     propertiesObjet.forEach((value) => {
-      let telefono = false;
+      let telefono = '';
       const recordar = value.properties['¿Recordar cita?'].select.name || 'RECORDAR CITA';
       const nombres = value.properties.nombresWh.rollup.array[0].title[0].plain_text;
-      const numDb = value.properties.Telefono.rollup.array[0].phone_number.trim().slice(1) || false;
+      let numDb = value.properties.Telefono.rollup.array[0].phone_number || false;
       if (numDb) {
         telefono = '593' + numDb + '@c.us';
+        numDb.trim().slice(1);
       }
 
       const getfechaYHora = value.properties['Fecha y hora'].date.start;
@@ -84,7 +85,7 @@ const getCitasManana = async () => {
       let fechaChange = newFechaYHora.toLocaleDateString().split('/');
       let fecha = `${fechaChange[1]}-${fechaChange[0]}-${fechaChange[2]}`;
 
-      if (recordar == 'RECORDAR CITA') {
+      if (recordar == 'RECORDAR CITA' && numDb) {
         sendMessage = [...sendMessage, { nombres, telefono, fecha, hora }];
       }
     });

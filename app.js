@@ -11,6 +11,7 @@ const { reply_msg, enlace_wh } = require('./helpers/msg');
 const handleTime = require('./helpers/handleTime');
 const { getCitasManana } = require('./helpers/getcitasmanana');
 const app = express();
+const path = require('path');
 
 app.use(cors());
 app.use(express.json());
@@ -22,6 +23,8 @@ const SESSION_FILE_PATH = './session.json';
 var client;
 var sessionData;
 
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'hbs');
 app.use('/', require('./routes/web'));
 
 const listenMessage = () => {
