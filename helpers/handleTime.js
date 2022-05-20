@@ -6,10 +6,10 @@ const handleTime = (client) => {
   console.log(`****====================== ${time} ======================****`);
 
   //desarrollo
-  // const timeSendMsg = '21:11:00';
+  const timeSendMsg = '21:00:00';
 
   //produccion
-  const timeSendMsg = '7:00:00 PM';
+  // const timeSendMsg = '7:00:00 PM';
 
   if (time == timeSendMsg) {
     console.log('ENVIANDO MENSAJES... ⚡⚡⚡');

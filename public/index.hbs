@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="css/index.css">
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Telefono</th>
+            <th>Fecha</th>
+            <th>hora</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each citasManana}}
+        <tr>
+            <td>{{ nombres }}</td>
+            <td>{{ telefono }}</td>
+            <td>{{ fecha }}</td>
+            <td>{{ hora }}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+    <h3>Total: {{ total }}</h3>
+</table>
