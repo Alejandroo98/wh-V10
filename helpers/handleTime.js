@@ -6,7 +6,7 @@ const handleTime = (client) => {
   console.log(`****====================== ${time} ======================****`);
 
   //desarrollo
-  const timeSendMsg = '21:00:00';
+  const timeSendMsg = '19:30:00';
 
   //produccion
   // const timeSendMsg = '7:00:00 PM';
