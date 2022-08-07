@@ -1,4 +1,7 @@
+const { horaEnvio } = require('../BASE/data');
 const { msg_send_wh } = require('./msg_send_wh');
+
+
 
 const handleTime = (client) => {
   const date = new Date();
@@ -6,7 +9,7 @@ const handleTime = (client) => {
   console.log(`****====================== ${time} ======================****`);
 
   //desarrollo
-  const timeSendMsg = '19:30:00';
+  const timeSendMsg = horaEnvio;
 
   //produccion
   // const timeSendMsg = '7:00:00 PM';

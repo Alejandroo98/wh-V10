@@ -1,44 +1,13 @@
 const { Client: ClientNotion } = require('@notionhq/client');
+const { fechaEnvio } = require('../BASE/data');
+
+
 
 //NOTION API//
 const notion = new ClientNotion({ auth: 'secret_gPapUdg5Q0b7Xy6UCgiLetfZ7cFZfnSzlSj6dwMEf3Z' });
 const databaseId = '21678fa5f3e341609c25ddda20c02ce3';
 
-const formatDate = () => {
-  const today = new Date();
-  let dia = '';
-  let mes = '';
 
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-
-  const tomorrowDate = tomorrow.toLocaleDateString();
-  const dateSplit = tomorrowDate.split('/');
-
-  if (dateSplit[1].length == '1') {
-    dia = `0${dateSplit[1]}`;
-  } else {
-    dia = dateSplit[1];
-  }
-
-  if (dateSplit[0].length == '1') {
-    mes = `0${dateSplit[0]}`;
-  } else {
-    mes = dateSplit[0];
-  }
-
-  //Como deberia ser -> año/mes/dia -> 2022-03-31
-  //Lo que resivo -> año/dia/mes -> 2022-31-3
-
-  //desarrollo
-  // const newDate = `${dateSplit[2]}-${mes}-${dateSplit[0]}`;
-
-  //produccion
-  //mes[0]/day[1]/año[2]
-  // 2022[2]-03[0]-31[1]
-  const nuevaHora = `${dateSplit[2]}-${mes}-${dia}`;
-  return nuevaHora;
-};
 
 const formatTime = (time) => {
   const hora = time.split(':');
@@ -58,7 +27,7 @@ const getCitasManana = async () => {
             property: 'Fecha y hora',
             date: {
               // equals: formatDate(),
-              equals: '2022-05-21',
+              equals: fechaEnvio,
             },
           },
         ],
