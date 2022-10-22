@@ -18,7 +18,7 @@ app.use(express.json());
 const MULTI_DEVICE = process.env.MULTI_DEVICE || 'true';
 const server = require('http').Server(app);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const SESSION_FILE_PATH = './session.json';
 var client;
 var sessionData;
@@ -28,12 +28,18 @@ app.set('view engine', 'hbs');
 app.use('/', require('./routes/web'));
 
 const listenMessage = () => {
+	let nombreCliente = '';
+	let apellidoCliente = '';
+
 	return client.on('message', async (msg) => {
 		const { from, body } = msg;
 		console.log('De:', from, '- Msg:', body);
 
-		sendMessage(client, from, msg_important);
-		sendMessage(client, from, enlace_wh);
+		// sendMessage(client, from, msg_important, {
+		// 	nombreCliente,
+		// 	apellidoCliente,
+		// });
+		// sendMessage(client, from, enlace_wh, { nombreCliente, apellidoCliente });
 	});
 };
 

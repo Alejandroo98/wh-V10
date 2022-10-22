@@ -4,7 +4,7 @@ const msg = {
 		'¿Tienes alguna duda? \n \n Por favor envíanos un mensaje a nuestro nro principal de WhatsApp en el siguiente enlace.',
 	msg_important:
 		'🔴 Por favor no responda a este número. Si desea reagendar su cita envíenos un mensaje al siguiente enlace.🔴 ',
-	name: 'Depilcenter - Centro de depilación 💃',
+	name: 'Zerena - Centro de depilación 💃',
 };
 
 module.exports = msg;
