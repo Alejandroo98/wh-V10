@@ -1,4 +1,4 @@
-const DELAY_TIME = 170; //ms
+const DELAY_TIME = 300; //ms
 
 /**
  * Enviamos un mensaje simple (texto) a nuestro cliente

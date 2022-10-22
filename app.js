@@ -9,7 +9,6 @@ const { connectionReady, connectionLost } = require('./helpers/connection');
 const { sendMessage } = require('./helpers/send');
 const { reply_msg, enlace_wh, msg_important } = require('./helpers/msg');
 const handleTime = require('./helpers/handleTime');
-const { getCitasManana } = require('./helpers/getcitasmanana');
 const app = express();
 const path = require('path');
 
@@ -99,6 +98,15 @@ setInterval(function () {
 	handleTime(client);
 }, 1000);
 
+//DESARROLLO
+// const getCitasManana = require('./DB/contactos.json');
+// getCitasManana.forEach((element) => {
+// 	console.log(element);
+// });
+// console.log('==== Numero ====', getCitasManana.length);
+
+//PRODUCCION
+const { getCitasManana } = require('./helpers/getcitasmanana');
 getCitasManana().then((x) => {
 	console.log(x);
 	console.log('==== Numero ====', x.length);
