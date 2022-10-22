@@ -1,0 +1,10 @@
+Veras, este error se trataba que cuando escaneaba el codigo QR todo bien, pero cuando yo queria enviar mensajes no funcionada, era como si el codigo QT no fue escaneado.
+
+Para solucionar este problema hice dos cosas.
+
+1. Eliminar la carpeta defalt en esta ruta -> C:\Users\jeffe\AppData\Local\Google\Chrome\User Data
+2. Ingresar a los archivos de la libreria whatsapp-web-js/src/until/Injected.js y cambiar algunas linas de codigo, lo puedes ver en los siguientes enlaces.
+
+
+*En este enlace se habla acerca del problema y todas las soluciones -> https://github.com/pedroslopez/whatsapp-web.js/issues/1741
+*En este enlace esta uno de los dos pasos de forma especifica -> https://github.com/pedroslopez/whatsapp-web.js/compare/main...Julzk:whatsapp-web.js:main
