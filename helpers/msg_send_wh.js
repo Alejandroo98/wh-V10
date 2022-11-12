@@ -14,7 +14,7 @@ const msg_send_wh = async (client) => {
 			let nombreCliente = nombres.split(' ')[0];
 			let apellidoCliente = nombres.split(' ')[1];
 
-			const diaCita = 'HOY';
+			const diaCita = 'MAÑANA';
 			const saludo = `Srta.  ${nombreCliente}. 😊`;
 			const permitanos = `Permítanos recordarle su cita ⏰`;
 			const datos_cita = `• *Fecha:* ${fecha} ( ${diaCita} ) \n • *Hora:* ${hora.trim()} \n • *Sucursal:* ${sucursal}`;

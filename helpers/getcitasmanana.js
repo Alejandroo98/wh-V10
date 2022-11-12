@@ -24,8 +24,8 @@ const getCitasManana = async () => {
 					{
 						property: 'Fecha y hora',
 						date: {
-							// equals: fechaEnvio,
-							equals: '2022-10-22',
+							equals: fechaEnvio,
+							// equals: '2022-10-22',
 						},
 					},
 				],

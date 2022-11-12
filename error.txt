@@ -8,3 +8,18 @@ Para solucionar este problema hice dos cosas.
 
 *En este enlace se habla acerca del problema y todas las soluciones -> https://github.com/pedroslopez/whatsapp-web.js/issues/1741
 *En este enlace esta uno de los dos pasos de forma especifica -> https://github.com/pedroslopez/whatsapp-web.js/compare/main...Julzk:whatsapp-web.js:main
+
+================ Error 2 ================
+
+ Evaluation failed: TypeError: Cannot read properties of undefined (reading 'isMDBackend')
+
+
+SOLUCION 👇
+
+editar Injected.js 
+
+1. Comenta la línea: 
+window.Store.Wap = window.mR.findModule('queryLinkPreview')[0].default; //47
+
+2. Establecer el window.Store.MDBackenden verdadero  //16
+window.Store.MDBackend = true;
