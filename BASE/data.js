@@ -1,7 +1,7 @@
 const formatDate = require('../helpers/formatDate');
 
 const datosApp = {
-	horaEnvio: '20:00:00',
+	horaEnvio: '22:09:00',
 	fechaEnvio: formatDate(),
 };
 
